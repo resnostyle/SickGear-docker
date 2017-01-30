@@ -11,7 +11,7 @@ if [ "$1" = 'SickBeard.py' ]; then
 
   cd /opt/SickGear
 
-  exec su-exec $APP_UID:$APP_GID python "$@" --datadir=$APP_DATA
+  exec gosu $APP_UID:$APP_GID python "$@" --datadir=$APP_DATA
 fi
 
 exec "$@"
