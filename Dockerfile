@@ -24,8 +24,8 @@ RUN apk add --update \
     rm /usr/local/bin/gosu.asc && \
     chmod +x /usr/local/bin/gosu && \
     mkdir /opt && \
-    cd /opt
-RUN git clone https://github.com/SickGear/SickGear.git && \
+    cd /opt && \
+    git clone https://github.com/SickGear/SickGear.git && \
     cd SickGear && \
     git checkout develop && \
     pip install --no-cache-dir lxml && \
