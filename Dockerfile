@@ -22,11 +22,11 @@ RUN apk add --update \
     curl -o /usr/local/bin/gosu.asc -SL "https://github.com/tianon/gosu/releases/download/1.6/gosu-$ARCH.asc" && \
     gpg --verify /usr/local/bin/gosu.asc && \
     rm /usr/local/bin/gosu.asc && \
-    chmod +x /usr/local/bin/gosu && \
-    mkdir /opt && \
+    chmod +x /usr/local/bin/gosu
+RUN  mkdir /opt && \
     cd /opt && \
-    git clone https://github.com/SickGear/SickGear.git && \
-    cd SickGear && \
+    git clone https://github.com/SickGear/SickGear.git 
+RUN cd /opt/SickGear && \
     git checkout develop && \
     pip install --no-cache-dir lxml && \
     pip install --no-cache-dir -r /opt/SickGear/requirements.txt && \
