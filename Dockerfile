@@ -1,3 +1,4 @@
+
 FROM python:2.7-alpine
 MAINTAINER Sami Haahtinen <ressu@ressukka.net>
 
@@ -51,3 +52,4 @@ COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["SickBeard.py"]
+
