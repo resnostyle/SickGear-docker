@@ -13,6 +13,7 @@ RUN apk add --update \
       libxslt-dev \
       musl-dev \
       tzdata \
+      git \
       && \
     gpg --keyserver pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 && \
     ARCH=`uname -m`; if [ $ARCH == "x86_64" ]; then export ARCH="amd64"; else export ARCH="i386"; fi && \
@@ -22,8 +23,10 @@ RUN apk add --update \
     rm /usr/local/bin/gosu.asc && \
     chmod +x /usr/local/bin/gosu && \
     mkdir /opt && \
-    git clone git@github.com:SickGear/SickGear.git && \ 
-    git checkout development && \ 
+    cd /opt
+RUN git clone https://github.com/SickGear/SickGear.git && \
+    cd SickGear && \
+    git checkout develop && \
     pip install --no-cache-dir lxml && \
     pip install --no-cache-dir -r /opt/SickGear/requirements.txt && \
     apk del \
